@@ -15,7 +15,7 @@ const getAllProducts = (req, res) => {
 const addProduct = (req, res) => {
     const {name, description, category, price, stock, expiry_date} = req.body;
     db.query(
-        'INSERT INTO products (name, description, category, price, stock, expiry_date) VALUES',
+        'INSERT INTO products (name, description, category, price, stock, expiry_date) VALUES (?,?,?,?,?,?)',
         [name, description, category, price, stock, expiry_date],
         (err,results) => {
             if(err) {
